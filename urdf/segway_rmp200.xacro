@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find iri_diff_drive_gazebo)/urdf/diff_drive.gazebo" />
+  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/segway_rmp200.gazebo" />
+  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/wheel.xacro" />
+  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/caster.xacro" />
+
+  <xacro:macro name="segway_rmp200" params="name sim_config">
+    
+    <xacro:segway_gazebo name="$(arg name)" sim_config="${sim_config}"/>
+
+    <material name="grey">
+      <color rgba="0.7 0.7 0.7 1"/>
+    </material>
+
+    <link name="base_footprint">
+      <inertial>
+        <mass value="1" />
+        <origin xyz="0.0 0 0.0" />
+        <inertia 
+          ixx="0.001" ixy="0.0" ixz="0.0"
+          iyy="0.001" iyz="0.0" 
+          izz="0.001" />
+      </inertial>
+    </link>
+
+    <link name="base_link">
+      <visual>
+
+        <!--
+        <origin xyz="0 0 0.18" rpy="0 0 0" />
+        <geometry>
+          <cylinder length="0.65" radius="0.3"/>
+        </geometry>
+        <material name="grey"/>
+        -->
+        
+        <origin xyz="0 0 -0.08" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://iri_segway_rmp200_description/meshes/rmp200.stl" scale="1 1 1"/>
+        </geometry>
+        <material name="grey"/>
+
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.18" rpy="0 0 0" />
+        <geometry>
+          <cylinder length="0.65" radius="0.3"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="80" />
+        <origin xyz="0 0 0.3" />
+        <inertia 
+          ixx="24.0" ixy="0.0" ixz="0.0"
+          iyy="24.0" iyz="0.0" 
+          izz="8.0" />
+      </inertial>
+    </link>
+
+    <joint name="base_footprint2base_link" type="fixed">
+      <parent link="base_footprint"/>
+      <child link="base_link"/>
+      <origin rpy="0 0 0" xyz="0 0 0.24"/>
+      <axis xyz="0 0 1"/>
+    </joint>
+
+
+    <link name="top_plate">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="1"/>
+        <inertia 
+          ixx="0.001" ixy="0.0" ixz="0.0" 
+          iyy="0.001" iyz="0.0" 
+          izz="0.001"/>
+      </inertial>
+    </link>
+
+    <joint name="base_link2top_plate" type="fixed">
+      <parent link="base_link"/>
+      <child link="top_plate"/>
+      <origin rpy="0 0 0" xyz="0 0 0.5"/>
+      <axis xyz="0 0 1"/>
+    </joint>
+
+    <!-- wheels -->
+    <!-- left wheel -->
+    <xacro:segway_wheel prefix="left" parent="base_link" visual_angle="3.14">
+      <origin xyz="0 0.2725 0.0" rpy="0 0 0" />
+    </xacro:segway_wheel>
+
+    <!-- right wheel -->
+    <xacro:segway_wheel prefix="right" parent="base_link" visual_angle="0.0">
+      <origin xyz="0 -0.2725 0.0" rpy="0 0 0" />
+    </xacro:segway_wheel>
+
+    <!-- caster support -->
+    <link name="caster_support">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="1"/>
+        <inertia 
+          ixx="0.001" ixy="0.0" ixz="0.0" 
+          iyy="0.001" iyz="0.0" 
+          izz="0.001"/>
+      </inertial>
+      <visual>
+       <origin xyz="0 0 -0.055" rpy="0 0 0" />
+       <geometry>
+         <box size="0.7 0.25 0.03"/>
+       </geometry>
+       <material name="grey"/>
+      </visual>
+      <collision>
+       <origin xyz="0 0 -0.055" rpy="0 0 0" />
+       <geometry>
+         <box size="0.7 0.25 0.03"/>
+       </geometry>
+       <material name="grey"/>
+      </collision>
+    </link>
+
+    <joint name="base_link2caster_support" type="fixed">
+      <parent link="base_link"/>
+      <child link="caster_support"/>
+      <origin rpy="0 0 0" xyz="0 0 0.005"/>
+      <axis xyz="0 0 1"/>
+    </joint>
+
+    <!-- front caster set -->
+    <xacro:segway_caster prefix="front" parent="caster_support">
+      <origin xyz="0.3292 0 -0.07" rpy="0 0 3.14159" />
+    </xacro:segway_caster>
+
+    <!-- rear caster set -->
+    <xacro:segway_caster prefix="rear" parent="caster_support">
+      <origin xyz="-0.3292 0 -0.07" rpy="0 0 0" />
+    </xacro:segway_caster>
+
+  </xacro:macro>
+</robot>

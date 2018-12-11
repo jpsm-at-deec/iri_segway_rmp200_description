@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+
+<robot name="robot" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:arg name="name" default="robot"/>
+  
+  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/segway_rmp200.xacro" />
+
+  <xacro:segway_rmp200 name="$(arg name)" sim_config="$(find iri_diff_drive_gazebo)/config/segway_rmp200.yaml"/>
+
+</robot>

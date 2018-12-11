@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<root xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/wheel.gazebo" />
+
+  <xacro:macro name="segway_wheel" params="prefix parent *origin visual_angle">
+    <joint name="${parent}_${prefix}_wheel_joint" type="continuous">
+      <xacro:insert_block name="origin" />
+      <axis xyz="0 1 0" />
+      <anchor xyz="0 0 0" />
+      <limit effort="100" velocity="100" />
+      <parent link="${parent}" />
+      <child link="${prefix}_wheel_link" />
+    </joint>
+
+    <link name="${prefix}_wheel_link">
+      <inertial>
+        <mass value="5" />
+        <origin xyz=" 0 0 0 " />
+        <inertia  ixx="0.076" ixy="0.0" ixz="0.0"
+                  iyy="0.144" iyz="0.0"
+                  izz="0.076" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 ${visual_angle}" />
+        <geometry>
+          <mesh filename="package://iri_segway_rmp200_description/meshes/wheel.dae" scale="0.0254 0.0254 0.0254"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="1.57 0 0" />
+        <geometry>
+          <cylinder length="0.001" radius="0.24"/>
+        </geometry>
+      </collision>
+    </link>
+    
+    <transmission name="${prefix}_wheel_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="${parent}_${prefix}_wheel_joint">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="${prefix}_wheel_motor">
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission>
+
+    <xacro:segway_wheel_gazebo prefix="${prefix}" parent="${parent}"/>
+    
+  </xacro:macro>
+</root>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<root xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <xacro:include filename="$(find iri_diff_drive_gazebo)/urdf/diff_drive.gazebo" />
+
+  <xacro:macro name="segway_gazebo" params="name sim_config">
+    
+    <xacro:iri_diff_drive_gazebo name="${name}" config="${sim_config}"/>
+
+    <!--
+    <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/${robot_name}</robotNamespace>
+        <controlPeriod>0.001</controlPeriod>
+      </plugin>
+    </gazebo>
+    -->
+
+    <gazebo reference="base_footprint">
+      <material>Gazebo/Black</material>
+    </gazebo>
+ 
+    <gazebo reference="base_link">
+      <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <gazebo reference="caster_support">
+      <material>Gazebo/Grey</material>
+    </gazebo>
+  </xacro:macro>
+
+</root>
