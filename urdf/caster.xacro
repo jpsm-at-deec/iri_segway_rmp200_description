@@ -20,7 +20,6 @@
         <geometry>
           <mesh filename="package://iri_segway_rmp200_description/meshes/caster_link.dae" scale="0.0254 0.0254 0.0254"/>
         </geometry>
-        <material name="grey"/>
       </visual>
       <!--no collision-->
     </link>
@@ -59,7 +58,6 @@
         <geometry>
           <mesh filename="package://iri_segway_rmp200_description/meshes/caster_wheel.dae" scale="1 1 1"/>
         </geometry>
-        <material name="grey"/>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="1.57 0 0" />

@@ -22,7 +22,6 @@
     </gazebo>
  
     <gazebo reference="base_link">
-      <material>Gazebo/Grey</material>
     </gazebo>
 
     <gazebo reference="caster_support">

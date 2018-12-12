@@ -39,9 +39,8 @@
         
         <origin xyz="0 0 -0.08" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://iri_segway_rmp200_description/meshes/rmp200_nowheels.stl" scale="1 1 1"/>
+          <mesh filename="package://iri_segway_rmp200_description/meshes/rmp200_nowheels.dae" scale="1 1 1"/>
         </geometry>
-        <material name="grey"/>
 
       </visual>
       <collision>
