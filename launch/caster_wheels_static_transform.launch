@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+  <arg name="name" default="robot"/>
+  
+  <group ns="$(arg name)">
+
+    <node pkg="tf" type="static_transform_publisher" name="static_tf_front_support"      args=" 0.329  0.0    -0.065 0 0 0 /$(arg name)/base_link     /$(arg name)/front_support      10"/>
+    <node pkg="tf" type="static_transform_publisher" name="static_tf_rear_support"       args="-0.329  0.0    -0.065 0 0 0 /$(arg name)/base_link     /$(arg name)/rear_support       10"/>
+    <node pkg="tf" type="static_transform_publisher" name="static_tf_front_caster_wheel" args="-0.04   0.0    -0.092 0 0 0 /$(arg name)/front_support /$(arg name)/front_caster_wheel 10"/>
+    <node pkg="tf" type="static_transform_publisher" name="static_tf_rear_caster_wheel"  args="-0.04   0.0    -0.092 0 0 0 /$(arg name)/rear_support  /$(arg name)/rear_caster_wheel  10"/>
+  
+  </group>
+
+</launch>

@@ -5,15 +5,8 @@
   
   <group ns="$(arg name)">
 
-    <node pkg="tf" 
-          type="static_transform_publisher" 
-          name="static_tf_left_wheel"
-          args="0.0 0.2725 0.0 0 0 0 /$(arg name)/base_link /$(arg name)/left_wheel_link 10"/>
-
-    <node pkg="tf" 
-          type="static_transform_publisher" 
-          name="static_tf_right_wheel"
-          args="0.0 -0.2725 0.0 0 0 3.14159 /$(arg name)/base_link /$(arg name)/right_wheel_link 10"/>
+    <node pkg="tf" type="static_transform_publisher" name="static_tf_left_wheel"  args=" 0.0  0.2725  0.0 0.0     0 0.0     /$(arg name)/base_link  /$(arg name)/left_wheel_link    10"/>
+    <node pkg="tf" type="static_transform_publisher" name="static_tf_right_wheel" args=" 0.0 -0.2725  0.0 3.14159 0 3.14159 /$(arg name)/base_link  /$(arg name)/right_wheel_link   10"/>
   
   </group>
 

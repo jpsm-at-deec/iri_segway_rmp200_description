@@ -13,11 +13,27 @@
       <param name="tf_prefix" type="string" value="/$(arg name)"/>
       <param name="publish_frequency" type="double" value="20.0"/>
     </node>
+    
+    <!--
+    <node pkg="joint_state_publisher"
+          type="joint_state_publisher"
+          name="joint_state_publisher">
+      <param name="use_gui"           value="true"/>
+      <remap from="$(arg name)/joint_states" to="$(arg name)/joint_states/"/>
+      <remap from="$(arg name)/robot_description" to="$(arg name)/robot_description/"/>
+    </node>
+    -->
 
   </group>
-<!--
+
+  <!--
   <include file="$(find iri_segway_rmp200_description)/launch/wheel_static_transform.launch">
     <arg name="name" value="$(arg name)"/>
-  </include>-->
+  </include>
+  -->
+  
+  <include file="$(find iri_segway_rmp200_description)/launch/caster_wheels_static_transform.launch">
+    <arg name="name" value="$(arg name)"/>
+  </include>
 
 </launch>

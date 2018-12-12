@@ -31,7 +31,7 @@
       <child link="${prefix}_support"/>
       <axis xyz="0 0 1" />
       <limit effort="0.1" velocity="100"/>
-      <dynamics damping="10.0" friction="0.0"/>
+      <dynamics damping="0.1" friction="0.0"/>
     </joint>
 
     <transmission name="${prefix}_yaw_trans">
@@ -57,14 +57,14 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://iri_segway_rmp200_description/meshes/caster_wheel.dae" scale="0.0254 0.0254 0.0254"/>
+          <mesh filename="package://iri_segway_rmp200_description/meshes/caster_wheel.dae" scale="1 1 1"/>
         </geometry>
         <material name="grey"/>
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="1.57 0 0" />
         <geometry>
-          <cylinder length="0.001" radius="0.0782"/>
+          <cylinder length="0.001" radius="0.083"/>
         </geometry>
       </collision>
     </link>
@@ -75,7 +75,7 @@
       <child link="${prefix}_caster_wheel" />
       <axis xyz="0 1 0" />
       <limit effort="1" velocity="100"/>
-      <dynamics damping="10.0" friction="0.0"/>
+      <dynamics damping="0.0" friction="0.0"/>
     </joint>
 
     <transmission name="${prefix}_caster_wheel_trans">

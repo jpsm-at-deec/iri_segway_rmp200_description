@@ -11,11 +11,6 @@
     <gazebo reference="${prefix}_wheel_link">
       <gravity>true</gravity>
       <self_collide>false</self_collide>
-      <mu1 value="10.0" />
-      <mu2 value="10.0" />
-      <kp  value="1000000.0" />
-      <kd  value="1.0" />
-      <material>Gazebo/DarkGrey</material>
     </gazebo>
   
   </xacro:macro>

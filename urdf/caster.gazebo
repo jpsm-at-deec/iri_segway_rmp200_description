@@ -5,31 +5,23 @@
   <xacro:macro name="segway_caster_gazebo" params="prefix parent">
 
     <gazebo reference="${prefix}_support">
-      <material>Gazebo/Grey</material>
+      <!--<material>Gazebo/Grey</material>-->
       <gravity>true</gravity>
       <self_collide>false</self_collide>
-      <mu1>1</mu1>
-      <mu2>1</mu2>
-      <kp  value="1000000.0" />
-      <kd  value="1.0" />
     </gazebo>
 
     <gazebo reference="${parent}_${prefix}_support_joint">
-      <implicitSpringDamper>true</implicitSpringDamper>
+      
     </gazebo>
 
     <gazebo reference="${prefix}_caster_wheel">
-      <material>Gazebo/Grey</material>
+      <!--<material>Gazebo/Grey</material>-->
       <gravity>true</gravity>
-      <self_collide>false</self_collide>
-      <mu1>1</mu1>
-      <mu2>1</mu2>
-      <kp  value="1000000.0" />
-      <kd  value="1.0" />
+      <self_collide>false</self_collide>      
     </gazebo>
 
     <gazebo reference="${prefix}_caster_wheel_joint">
-      <implicitSpringDamper>true</implicitSpringDamper>
+      
     </gazebo>
 
   </xacro:macro>

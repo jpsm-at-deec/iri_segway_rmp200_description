@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/caster.xacro" />
+
+  <xacro:macro name="caster_support_wheels">
+
+    <link name="caster_support">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="1"/>
+        <inertia 
+          ixx="0.001" ixy="0.0" ixz="0.0" 
+          iyy="0.001" iyz="0.0" 
+          izz="0.001"/>
+      </inertial>
+      <visual>
+       <origin xyz="0 0 -0.055" rpy="0 0 0" />
+       <geometry>
+         <box size="0.7 0.25 0.03"/>
+       </geometry>
+       <material name="grey"/>
+      </visual>
+      <collision>
+       <origin xyz="0 0 -0.055" rpy="0 0 0" />
+       <geometry>
+         <box size="0.7 0.25 0.03"/>
+       </geometry>
+       <material name="grey"/>
+      </collision>
+    </link>
+
+    <joint name="base_link2caster_support" type="fixed">
+      <parent link="base_link"/>
+      <child link="caster_support"/>
+      <origin rpy="0 0 0" xyz="0 0 0.005"/>
+      <axis xyz="0 0 1"/>
+    </joint>
+
+    <!-- front caster set -->
+    <xacro:segway_caster prefix="front" parent="caster_support">
+      <origin xyz="0.3292 0 -0.07" rpy="0 0 3.14159" />
+    </xacro:segway_caster>
+
+    <!-- rear caster set -->
+    <xacro:segway_caster prefix="rear" parent="caster_support">
+      <origin xyz="-0.3292 0 -0.07" rpy="0 0 0" />
+    </xacro:segway_caster>
+
+  </xacro:macro>
+</robot>
