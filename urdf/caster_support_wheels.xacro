@@ -31,6 +31,10 @@
        </geometry>
       </collision>
     </link>
+    
+    <gazebo reference="caster_support">
+      <material>Gazebo/FlatBlack</material>
+    </gazebo>
 
     <joint name="base_link2caster_support" type="fixed">
       <parent link="base_link"/>

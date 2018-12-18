@@ -5,7 +5,6 @@
   <xacro:macro name="segway_wheel_gazebo" params="prefix parent">
 
     <gazebo reference="${parent}_${prefix}_wheel_joint">
-      <dynamics damping="0.7" friction="0.2" />
     </gazebo>
 
     <gazebo reference="${prefix}_wheel_link">
