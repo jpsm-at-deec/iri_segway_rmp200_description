@@ -24,9 +24,6 @@
     <gazebo reference="base_link">
     </gazebo>
 
-    <gazebo reference="caster_support">
-      <material>Gazebo/Grey</material>
-    </gazebo>
   </xacro:macro>
 
 </root>
