@@ -2,7 +2,7 @@
 
 <root xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/wheel.gazebo" />
+  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/include/wheel.gazebo" />
 
   <xacro:macro name="segway_wheel" params="prefix parent *origin visual_angle">
     <joint name="${parent}_${prefix}_wheel_joint" type="continuous">

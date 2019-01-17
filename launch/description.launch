@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
-  <arg name="name"  default="segway" />
+  <arg name="name"  default="robot" />
   <arg name="model" default="segway_example" />
+  <arg name="static_wheels" default="false" />
 
   <group ns="$(arg name)">
   
@@ -26,11 +27,12 @@
 
   </group>
 
-  <!--
-  <include file="$(find iri_segway_rmp200_description)/launch/wheel_static_transform.launch">
-    <arg name="name" value="$(arg name)"/>
-  </include>
-  -->
+  <group if="$(arg static_wheels)">
+    <include file="$(find iri_segway_rmp200_description)/launch/wheel_static_transform.launch">
+      <arg name="name" value="$(arg name)"/>
+    </include>
+  </group>
+
   
   <include file="$(find iri_segway_rmp200_description)/launch/caster_wheels_static_transform.launch">
     <arg name="name" value="$(arg name)"/>

@@ -2,7 +2,7 @@
 
 <root xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/caster.gazebo" />
+  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/include/caster.gazebo" />
 
   <xacro:macro name="segway_caster" params="prefix parent *origin">
     <!-- rear caster set -->

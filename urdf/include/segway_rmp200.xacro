@@ -3,9 +3,9 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:include filename="$(find iri_diff_drive_gazebo)/urdf/diff_drive.gazebo" />
-  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/segway_rmp200.gazebo" />
-  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/wheel.xacro" />
-  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/caster.xacro" />
+  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/include/segway_rmp200.gazebo" />
+  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/include/wheel.xacro" />
+  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/include/caster.xacro" />
 
   <xacro:macro name="segway_rmp200" params="name sim_config">
     

@@ -2,7 +2,7 @@
 
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/caster.xacro" />
+  <xacro:include filename="$(find iri_segway_rmp200_description)/urdf/include/caster.xacro" />
 
   <xacro:macro name="caster_support_wheels">
 
