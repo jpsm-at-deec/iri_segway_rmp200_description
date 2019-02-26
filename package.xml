@@ -51,6 +51,7 @@
   <buildtool_depend>catkin</buildtool_depend>
   <exec_depend>iri_diff_drive_gazebo</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>xacro</exec_depend>
   <exec_depend>tf</exec_depend>
 
 

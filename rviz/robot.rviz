@@ -52,25 +52,9 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        robot/base_footprint:
+        robot/battery_monitor_base_parent:
           Value: true
-        robot/base_link:
-          Value: true
-        robot/caster_support:
-          Value: true
-        robot/front_caster_wheel:
-          Value: true
-        robot/front_support:
-          Value: true
-        robot/left_wheel_link:
-          Value: true
-        robot/rear_caster_wheel:
-          Value: true
-        robot/rear_support:
-          Value: true
-        robot/right_wheel_link:
-          Value: true
-        robot/top_plate:
+        robot/bm1_battery_monitor_base:
           Value: true
       Marker Scale: 0.5
       Name: TF
@@ -78,22 +62,9 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        robot/base_footprint:
-          robot/base_link:
-            robot/caster_support:
-              {}
-            robot/front_support:
-              robot/front_caster_wheel:
-                {}
-            robot/left_wheel_link:
-              {}
-            robot/rear_support:
-              robot/rear_caster_wheel:
-                {}
-            robot/right_wheel_link:
-              {}
-            robot/top_plate:
-              {}
+        robot/battery_monitor_base_parent:
+          robot/bm1_battery_monitor_base:
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 0.899999976
@@ -106,51 +77,12 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_footprint:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        base_link:
+        battery_monitor_base_parent:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        caster_support:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_caster_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        front_support:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        left_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_caster_wheel:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rear_support:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        right_wheel_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        top_plate:
+        bm1_battery_monitor_base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -165,7 +97,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: robot/base_footprint
+    Fixed Frame: robot/battery_monitor_base_parent
     Frame Rate: 30
   Name: root
   Tools:
@@ -186,25 +118,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 2.24653697
+      Distance: 4.38226652
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.0725605115
-        Y: -0.0272909347
-        Z: 0.316563159
+        X: -0.409453183
+        Y: -0.273282826
+        Z: 0.688962221
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.255398631
+      Pitch: 0.405398548
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 0.565398395
+      Yaw: 0.795398176
     Saved: ~
 Window Geometry:
   Displays:

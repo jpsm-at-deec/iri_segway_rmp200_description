@@ -10,7 +10,7 @@
     <param name="robot_description"
          command="$(find xacro)/xacro --inorder '$(find iri_segway_rmp200_description)/urdf/$(arg model).xacro' name:=$(arg name)" />
 
-    <node pkg="robot_state_publisher" type="state_publisher" name="$(arg name)_tf_broadcaster">
+    <node pkg="robot_state_publisher" type="state_publisher" name="state_publisher">
       <param name="tf_prefix" type="string" value="/$(arg name)"/>
       <param name="publish_frequency" type="double" value="20.0"/>
     </node>
